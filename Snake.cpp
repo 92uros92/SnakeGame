@@ -8,9 +8,14 @@ int headX = row / 2;
 int headY = colum / 2;
 const int size = row * colum;
 int map[size];
-//int tailX[size];
-//int tailY[size];
-int nTail = 25;
+
+// Snake detail
+int tailX[size];
+int tailY[size];
+int update;
+int upDown;
+int rightLeft;
+
 
 // Random foof generator
 int foodX = rand() % row;
@@ -38,13 +43,17 @@ void printField()
 			{
 				std::cout << "|";
 			}
-			if (i == headY && j == headX)
-			{
-				std::cout << "O";
-			}
 			if (j == row - 1)
 			{
 				std::cout << "|";
+			}
+			if (i == headX && j == headY)
+			{
+				std::cout << "O";
+			}
+			else if (i == foodX && j == foodY)
+			{
+				std::cout << "~";
 			}
 			else
 				std::cout << " ";
@@ -64,4 +73,45 @@ void printField()
 void clearScreen()
 {
 	system("cls");
+}
+
+//void foodOnField()
+//{
+//	if (foodX)
+//}
+
+void changeDirection(char pressKey)
+{
+	switch (pressKey)
+	{
+	case 'w':
+		std::cout << "UP";
+		break;
+	case 's':
+		std::cout << "DOWN";
+		break;
+	case 'd':
+		std::cout << "RIGHT";
+		break;
+	case 'a':
+		std::cout << "LEFT";
+		break;
+	default:
+		break;
+	}
+}
+
+void gameRunning()
+{
+	GameOver = false;
+	while (!GameOver)
+	{
+		if (_kbhit)
+		{
+			changeDirection(_getch());
+		}
+	}
+	
+
+
 }
