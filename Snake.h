@@ -3,6 +3,7 @@
 #include <time.h>
 #include <conio.h>
 
+
 /*
 	FUNCTIONS
 */
@@ -13,11 +14,12 @@ void clearScreen();
 // Prints the map to console
 void printField();
 
-// Creates the first food
-/*void foodOnField()*/;
-
 // Change direction
 void changeDirection(char pressKey);
 
 // Directig the snake and updating its direction
 void gameRunning();
+
+void moveSnake(int upDown, int rightLeft);
+
+void updateSnakePosition();
