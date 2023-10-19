@@ -15,11 +15,10 @@ void clearScreen();
 void printField();
 
 // Change direction
-void changeDirection(char pressKey);
+void changeDirection();
 
 // Directig the snake and updating its direction
 void gameRunning();
 
-void moveSnake(int upDown, int rightLeft);
-
-void updateSnakePosition();
+// Main function of the game
+void moveSnake();
