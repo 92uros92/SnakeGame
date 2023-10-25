@@ -1,4 +1,5 @@
 #include <iostream>
+#include <windows.h>
 #include "Snake.h"
 
 enum direction
@@ -23,8 +24,8 @@ int tailY[200];
 int snakeBody;
 
 // Random food generator
-int foodX = rand() % (row - 2);
-int foodY = rand() % (colum - 2);
+int foodX = rand() % (row - 1);
+int foodY = rand() % (colum - 1);
 
 int score = 0;
 
@@ -118,6 +119,7 @@ void gameRunning()
 		printField();
 		changeDirection();
 		moveSnake();
+		Sleep(60);	// wait/sleep for 50 millisecond
 	}
 
 }
@@ -125,7 +127,7 @@ void gameRunning()
 void changeDirection()
 {
 	// If the key is pressed
-	if (_kbhit)
+	while (_kbhit())
 	{
 		switch (_getch())
 		{
@@ -197,8 +199,8 @@ void moveSnake()
 	if (headX == foodX && headY == foodY)
 	{
 		score += 1;
-		foodX = rand() % (row - 2);
-		foodY = rand() % (colum - 2);
+		foodX = rand() % (row - 1);
+		foodY = rand() % (colum - 1);
 		snakeBody++;
 	}
 }
