@@ -4,7 +4,7 @@
 
 ### Controls
 
-WASD - for movement
+###### WASD - for movement
 
 ### Screenshot
 
